@@ -30,3 +30,6 @@ jobs:
         INPUT_PULL_REQUEST_TITLE: ${{ github.event.pull_request.title }}
         INPUT_PULL_REQUEST_DESCRIPTION: ${{ github.event.pull_request.body }}
       run: python .github/scripts/generate_readme.py
+
+    - name: Check README contents
+      run: cat README.md

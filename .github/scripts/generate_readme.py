@@ -14,8 +14,8 @@ def get_pull_request_users(repo_owner, repo_name):
 
     return list(users)
 
-def generate_readme(users, pr_title, pr_description):
-    with open('README.md', 'a') as readme:
+def generate_readme(users, pr_title, pr_description, readme_path):
+    with open(readme_path, 'a') as readme:
         readme.write('# Pull Request Contributors\n\n')
         readme.write('List of GitHub users who have submitted pull requests:\n\n')
         for user in users:
@@ -35,4 +35,7 @@ if __name__ == "__main__":
     pr_title = os.getenv('INPUT_PULL_REQUEST_TITLE')
     pr_description = os.getenv('INPUT_PULL_REQUEST_DESCRIPTION')
 
-    generate_readme(contributors, pr_title, pr_description)
+    # Specify the correct path to README.md
+    readme_path = 'README.md'
+
+    generate_readme(contributors, pr_title, pr_description, readme_path)
